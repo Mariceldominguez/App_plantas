@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlantasApp - Parcial-1</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Encabezado principal -->
+  <header class="topbar">
+    <div class="logo-area">
+      <img src="logo.jpg" alt="Logo PlantasApp" class="logo-img">
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#formulario">Agregar Planta</a>
+      <a href="#coleccion">Colección</a>
+    </nav>
+  </header>
+
+  <!-- Sección de bienvenida -->
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h2>Bienvenido a tu Jardín Virtual</h2>
+      <p>
+        Aquí podrás guardar, organizar y cuidar todas tus plantas fácilmente.
+        Sube fotos <i class="fa-solid fa-camera"></i>, agrega notas <i class="fa-solid fa-leaf"></i> y marca tus
+        favoritas <i class="fa-solid fa-seedling"></i>.
+      </p>
+      <a href="#app" class="btn">Empezar Ahora</a>
+    </div>
+    <div class="hero-img">
+      <img src="concepto-de-jardineria-con-plantas.jpg" alt="Jardín bonito">
+    </div>
+  </section>
+
+  <!-- Aplicación con Vue -->
+  <div id="app" class="container">
+    <main>
+      <!-- Formulario -->
+      <section id="formulario" class="form-area">
+        <formulario-planta 
+          @guardar-planta="agregarPlanta"
+          >
+        </formulario-planta>
+      </section>
+
+      <!-- Colección -->
+      <section id="coleccion" class="gallery-area">
+        <h2>Mi Colección ({{ plantas.length }})</h2>
+
+        <div v-if="plantas.length === 0" class="empty">
+          No hay plantas aún. Agrega la primera planta usando el formulario.
+        </div>
+
+        <div v-else class="grid">
+          <tarjeta-planta 
+            v-for="planta in plantas" 
+            :key="planta.id" 
+            :planta="planta"
+            @eliminar-planta="eliminarPlanta" 
+            @alternar-favorito="alternarFavorito"
+            >
+          </tarjeta-planta>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="aplicacion.js"></script>
+</body>
+</html>

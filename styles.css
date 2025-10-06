@@ -1,0 +1,329 @@
+:root {
+  --bg: #f4f9f4;
+  --card: #ffffff;
+  --accent: #43a047;
+  --muted: #6b6b6b;
+}
+
+/*  Reset  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url("img/plantas-de-interior-en-el-estudio.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  min-height: 100vh;
+}
+
+/*  Encabezado  */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 8px 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  max-height: 70px;   
+  overflow: hidden;  
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 200px;   
+  width: auto;
+  flex-shrink: 0; 
+}
+
+.logo-area h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.topbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.topbar nav a:hover {
+  color: #1b5e20;
+}
+
+/*  Sección Hero  */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  color: #1b5e20;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #43a047;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #2e7d32;
+}
+
+.hero-img img {
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/*  Contenedor principal  */
+.container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 36px;
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0;
+  font-size: 16px;
+}
+
+/*  Formulario  */
+.form-area {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.plant-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #2e7d32;
+}
+
+.plant-form input,
+.plant-form select,
+.plant-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fdfdfd;
+  color: #333;
+  margin-bottom: 10px;
+  transition: border 0.3s;
+}
+
+.plant-form input:focus,
+.plant-form select:focus,
+.plant-form textarea:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+}
+
+.plant-form .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.plant-form button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plant-form button:hover {
+  background: #2e7d32;
+}
+
+.error {
+  color: #e53935;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/*  Tarjetas  */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card .body {
+  padding: 14px;
+}
+
+.card h4 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+.card .meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card .notes {
+  margin: 10px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.card .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card button {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.card.favorite {
+  border: 3px solid gold;
+}
+
+/*  Estado de riego  */
+.card .status {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.card .status span {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.card .status span:nth-child(1) {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.card .status span:nth-child(2) {
+  background: #fff8e1;
+  color: #ef6c00;
+}
+
+.card .status span:nth-child(3) {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/*  Fecha de agregado  */
+.card .added {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #388e3c;
+  background: #f1f8e9;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/*  Dificultad de cuidado  */
+.dif-facil {
+  color: #2e7d32; 
+}
+.dif-medio {
+  color: #ef6c00; 
+}
+.dif-dificil {
+  color: #c62828; 
+}
